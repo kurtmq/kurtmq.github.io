@@ -268,183 +268,278 @@ section {
     color: #d0d0d0; /* Slightly muted white for readability */
     line-height: 1.5;
 }
-/* Section 2 Layout */
-.second-section {
-    background-color: #154273;
-    height: 100vh;
-    scroll-snap-align: start;
-    display: flex;
-    align-items: stretch;
-}
+        /* Section 2 Layout */
+        .second-section {
+            background-color: #154273;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: stretch;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
 
-.second-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr; /* LEFT (experience) is wider now */
-    width: 100%;
-    padding: 30px;
-    gap: 20px;
-}
+        .second-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            width: 100%;
+            padding: 30px;
+            gap: 20px;
+        }
 
-/* Keep .left-column styles for experience */
-.left-column {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    padding-right: 15px;
-}
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
 
-.school-logo {
-    width: 100px;
-    height: auto;
-    margin-right: 10px;
-}
+        .school-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .education{
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+        .edu-item {
+            display: flex;
+            align-items: center;
+        }
 
-.edu-item {
-    display: flex;
-    align-items: center;
-}
+        .edu-text p {
+            margin: 3px 0;
+            font-size: 0.9rem;
+            color: #d0d0d0;
+        }
 
-.edu-text p {
-    margin: 3px 0;
-    font-size: 0.9rem;
-    color: #d0d0d0;
-}
+        /* Skills */
+        .skills {
+            margin-top: 0px;
+        }
 
-/* Skills */
-.skills {
-    margin-top: 0px;
-}
+        .skill-category h4 {
+            color: #4DA8FF;
+            margin-bottom: 5px;
+        }
 
-.skill-category h4 {
-    color: #4DA8FF;
-    margin-bottom: 5px;
-}
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
 
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+        .skill-tag {
+            background-color: #1e518c;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: background-color 0.3s ease;
+        }
 
-.skill-tag {
-    background-color: #1e518c;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    transition: background-color 0.3s ease;
-}
+        .skill-tag:hover {
+            background-color: #163a63;
+        }
 
-.skill-tag:hover {
-    background-color: #163a63;
-}
+        /* Affiliations Section */
+        .affiliations {
+            margin-top: 0px;
+        }
+        .affiliations-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .affiliations-container {
+            display: flex;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            width: 300%;
+        }
+        .affiliation-card {
+            box-sizing: border-box;
+            min-width: 100%;
+            background-color: #3f83c4; /* Lighter color as requested */
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .affiliation-card:hover{
+            background-color: #4f9de6;
+        }
+        .affiliation-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .affiliation-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .affiliation-details h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .affiliation-position {
+            font-size: 0.9rem;
+            color: #d5e4f8;
+            margin-bottom: 3px;
+            text-decoration: none;
+        }
+        .affiliation-date {
+            font-size: 0.8rem;
+            color: #cdcdcd;
+            text-decoration: none;
+        }
 
-/* Buttons */
-.action-buttons {
-    margin-top: 0px;
-    display: flex;
-    gap: 10px;
-}
+        /* Slider Navigation */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
 
-.btn {
-    padding: 10px 16px;
-    background-color: #3f83c4;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #1e518c;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.btn:hover {
-    background-color: #275d8f;
-}
+        .slider-dot.active {
+            background-color: #4DA8FF;
+        }
 
-/* Right column for education/skills/buttons */
-.right-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: auto;
-}
-.experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        /* Buttons */
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
 
-.experience-card {
-    background-color: #1e518c;
-    padding: 12px;
-    border-radius: 10px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-}
+        .btn {
+            padding: 10px 16px;
+            background-color: #3f83c4;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
 
-.experience-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-    background-color: #2563a8; /* slightly lighter on hover */
-}
+        .btn:hover {
+            background-color: #275d8f;
+        }
 
-.exp-logo {
-    flex-shrink: 0;
-    width: 120px;
-    height: 120px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
 
-.exp-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* preserves aspect ratio inside square */
-}
-.exp-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.exp-details h4 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-}
+        .experience-card {
+            background-color: #1e518c;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+        }
 
-.role {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffffff;
-}
+        .experience-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            background-color: #2563a8;
+        }
 
-.time-period {
-    font-size: 0.9rem;
-    color: #b0c4de;
-    margin-bottom: 0.4rem;
-}
+        .exp-logo {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-.description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #d0d0d0;
-}
-/* Scrollbar Styling */
-.left-column::-webkit-scrollbar,
-.right-column::-webkit-scrollbar {
-    width: 6px;
-}
+        .exp-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-.left-column::-webkit-scrollbar-thumb,
-.right-column::-webkit-scrollbar-thumb {
-    background: #3578b8;
-    border-radius: 3px;
-}
+        .exp-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .exp-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .role {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .time-period {
+            font-size: 0.9rem;
+            color: #b0c4de;
+            margin-bottom: 0.4rem;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #d0d0d0;
+        }
+
+        .left-column::-webkit-scrollbar,
+        .right-column::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .left-column::-webkit-scrollbar-thumb,
+        .right-column::-webkit-scrollbar-thumb {
+            background: #3578b8;
+            border-radius: 3px;
+        }
+
+        h2{
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
         /* Section styling */
         .third-section {
             background-color: #0A1A2F;
