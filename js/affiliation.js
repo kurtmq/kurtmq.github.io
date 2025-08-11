@@ -25,4 +25,5 @@
         }
 
         // Uncomment the line below if you want auto-sliding every 5 seconds
-        // setInterval(autoSlide, 5000);
+
+        setInterval(autoSlide, 5000);
