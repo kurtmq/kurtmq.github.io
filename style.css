@@ -360,6 +360,8 @@ section {
     .stack-category-2 {
         display: block; /* kill the grid */
         margin-top: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        
     }
 
     .stack-category-2 h3 {
@@ -368,26 +370,28 @@ section {
         text-align: left;
     }
     /* Remove vertical centering from desktop */
-    .db-column {
-        display: block; /* kill flex layout */
-        text-align: center;
+    .db-column, .tools-column {
+        display: block;
+        width: 100%;
     }
     .db-logos, .tools-logos {
         display: grid !important;
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+        gap: 15px !important; 
         justify-items: center;
+        width: 100%; /* ensure same available width as stack-grid */
+        max-width: none; /* remove desktop's max-width from tools */
         margin: 0 auto;
+        flex-wrap: block;
+        grid-template-columns: repeat(3, 1fr) !important;
     }
-
+    .db-stack-item .tools-stack-item{
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
     .db-logos img, .tools-logos img {
         width: 50px;
         height: 50px;
-    }
-
-    .db-logos .stack-item,
-    .tools-logos .stack-item {
-        text-align: center;
     }
 }
         /* Section 2 Layout */
