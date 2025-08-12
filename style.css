@@ -167,18 +167,6 @@ section {
 .stack-item:hover {
     transform: scale(1.1);
 }
-
-/* Responsive */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .intro {
-        text-align: center;
-    }
-}
 /* Two-column Databases + Tools layout */
 .stack-category-2 {
     display: grid;
@@ -267,6 +255,90 @@ section {
     font-size: 20px;
     color: #d0d0d0; /* Slightly muted white for readability */
     line-height: 1.5;
+}
+@media screen and (max-width: 768px) {
+    /* Disable scroll snap on mobile for better scrolling */
+    html, body {
+        scroll-snap-type: none;
+    }
+    
+    section {
+        height: auto;
+        min-height: 100vh;
+        scroll-snap-align: none;
+        padding: 20px 0;
+    }
+
+    /* Hero Section - Mobile */
+    .hero {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+        height: auto;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .intro {
+        text-align: center;
+        order: 2;
+    }
+
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .roles {
+        font-size: 1.1rem;
+    }
+
+    .profile-pic {
+        width: 280px;
+        max-width: 90vw;
+    }
+
+    .tech-stack {
+        order: 1;
+        width: 100%;
+    }
+
+    .tech-stack h2 {
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .stack-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .stack-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stack-item p {
+        font-size: 0.7rem;
+    }
+
+    .stack-category-2 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .db-logos, .tools-logos {
+        gap: 15px;
+    }
+
+    .tech-summary h3 {
+        font-size: 28px;
+    }
+
+    .tech-summary p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
 }
         /* Section 2 Layout */
         .second-section {
@@ -540,6 +612,76 @@ section {
             margin-bottom: 5px;
             font-size: 22px;
         }
+@media screen and (max-width: 768px) {
+    .second-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .second-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .left-column, .right-column {
+        overflow-y: visible;
+        max-height: none;
+    }
+
+    .experience-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .exp-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .exp-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .school-logo {
+        width: 60px;
+    }
+
+    .edu-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .affiliations-container {
+        width: 100%;
+    }
+
+    .affiliation-card {
+        min-width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
         /* Section styling */
         .third-section {
             background-color: #0A1A2F;
@@ -718,20 +860,66 @@ section {
             }
         }
 
-        @media (max-width: 480px) {
-            .carousel-card {
-                flex: 0 0 280px;
-                height: 175px;
-            }
-            
-            .carousel-container {
-                height: 65vh;
-            }
-            
-            .projects-header {
-                height: 25vh;
-            }
-        }
+/* Third Section (Projects) - Mobile */
+@media screen and (max-width: 768px) {
+    .third-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+
+    .projects-header {
+        height: auto;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .projects-header h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .carousel-container {
+        height: 60vh;
+        max-height: 400px;
+    }
+
+    .carousel-card {
+        flex: 0 0 280px;
+        height: 200px;
+    }
+
+    .carousel-card.center {
+        transform: scale(1.05);
+    }
+
+    .carousel-card:not(.center) {
+        transform: scale(0.9);
+        filter: brightness(0.7);
+    }
+
+    .carousel-btn {
+        padding: 8px;
+        transform: translateY(-50%) scale(0.8);
+    }
+
+    .carousel-btn:hover {
+        transform: translateY(-50%) scale(0.9);
+    }
+
+    .carousel-btn img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}
         /* Fourth Section Styling */
         .fourth-section {
             background-color: #154273;
@@ -965,63 +1153,138 @@ section {
             height: 50px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .fourth-section {
-                grid-template-columns: 1fr;
-                grid-template-rows: 60% 40%;
-                height: 100vh;
-            }
+/* Fourth Section - Mobile */
+@media screen and (max-width: 768px) {
+    .fourth-section {
+        display: flex;              /* simpler stacking */
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+    }
 
-            .left-column-fourth {
-                padding: 40px 30px;
-            }
+    .right-column-fourth {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;        /* keep picture & buttons centered */
+        text-align: center;
+        order: 1;                    /* right column first on mobile */
+    }
 
-            .right-column-fourth {
-                padding: 30px 20px;
-            }
+    .left-column-fourth {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        order: 2;                    /* values + slider below */
+    }
 
-            .profile-image {
-                width: 180px;
-                height: 180px;
-            }
+    .profile-image {
+        width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+    }
 
-            .values-header h2 {
-                font-size: 2rem;
-            }
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
 
-            .image-slider-section {
-                height: 150px;
-            }
-        }
+    .social-links {
+        gap: 20px;
+    }
 
-        @media (max-width: 768px) {
-            .left-column-fourth {
-                padding: 30px 20px;
-            }
+    .image-slider-section {
+        height: auto;
+    }
 
-            .values-header h2 {
-                font-size: 1.8rem;
-            }
+    .slider-image {
+        flex: 0 0 200px;
+    }
 
-            .value-item h3 {
-                font-size: 1.3rem;
-            }
+    .image-slider-track {
+        gap: 12px;
+        width: calc((200px + 12px) * 20);
+    }
+}
 
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
 
-            .cta-section h2 {
-                font-size: 1.8rem;
-            }
+/* Very small screens */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 15px;
+    }
 
-            .image-slider-section {
-                height: 120px;
-            }
+    .intro h1 {
+        font-size: 2rem;
+    }
 
-            .slider-image {
-                flex: 0 0 200px;
-            }
-        }
+    .stack-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .carousel-container {
+        height: 50vh;
+    }
+
+    .carousel-card {
+        flex: 0 0 250px;
+        height: 180px;
+    }
+
+    .values-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .value-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .value-item p {
+        font-size: 0.9rem;
+    }
+
+    .profile-image {
+        width: 150px;
+    }
+
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Landscape mobile orientation */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .fourth-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .left-column-fourth, .right-column-fourth {
+        height: auto;
+    }
+
+    .image-slider-section {
+        height: 80px;
+    }
+}
