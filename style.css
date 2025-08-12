@@ -6,6 +6,7 @@ body {
   scroll-snap-type: y mandatory;    /* enable vertical snap */
   scroll-behavior: smooth;          /* optional: smooth snapping */
   -webkit-overflow-scrolling: touch;/* smooth scrolling on iOS */
+  margin: 0px;
 }
 
 
@@ -256,10 +257,21 @@ section {
     color: #d0d0d0; /* Slightly muted white for readability */
     line-height: 1.5;
 }
+@media screen and (max-width: 1300px) {
+  .hero {
+    height: auto;
+    min-height: 100vh; /* ensures it’s at least full height but can grow */
+    flex-wrap: wrap;   /* allow left and right to stack if needed */
+  }
+}
 @media screen and (max-width: 768px) {
     /* Disable scroll snap on mobile for better scrolling */
     html, body {
         scroll-snap-type: none;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden; /* prevent horizontal scroll and overflow */
+        margin: 0px;
     }
     
     section {
@@ -403,6 +415,7 @@ section {
             align-items: stretch;
             font-family: Arial, sans-serif;
             color: white;
+            width: 100%;
         }
 
         .second-container {
@@ -671,6 +684,10 @@ section {
     .second-section {
         height: auto;
         min-height: 100vh;
+        box-sizing: border-box;
+        width: 100vw;
+        margin: 0;   
+        padding: 0;        
     }
 
     .second-container {
@@ -680,14 +697,19 @@ section {
     }
 
     .left-column, .right-column {
+        overflow-x: hidden;     /* 🚫 Stop horizontal scrolling */
         overflow-y: visible;
         max-height: none;
+        width: 100%;
+        box-sizing: border-box; /* Include padding in width */
+        padding: 0px;
     }
-
     .experience-card {
         flex-direction: column;
         text-align: center;
         padding: 15px;
+        width: 100%;          /* Take full width */
+        box-sizing: border-box; /* Include padding in width */
     }
 
     .exp-logo {
@@ -890,31 +912,6 @@ section {
                 height: 375px;
             }
         }
-
-        @media (max-width: 768px) {
-            .carousel-card {
-                flex: 0 0 350px;
-                height: 220px;
-            }
-            
-            .projects-header h2 {
-                font-size: 2rem;
-            }
-            
-            .carousel-container {
-                height: 70vh;
-            }
-            
-            .carousel-btn {
-                padding: 10px;
-            }
-            
-            .carousel-btn img {
-                width: 20px;
-                height: 20px;
-            }
-        }
-
 /* Third Section (Projects) - Mobile view: make Section 3 projects vertical like Section 2 */
 @media (max-width: 768px) {
     /* Third Section (Projects) - Mobile: Vertical Cards Layout */
@@ -970,19 +967,18 @@ section {
     .carousel-card {
         flex: none;
         width: 100%;
-        height: 220px;
+        height: auto;
         transform: none !important;
         filter: none !important;
-        background-color: #1e518c;
+        background-color: #0A1A2F;
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
-        margin: 0; /* Reset any margin */
         box-sizing: border-box; /* Include any borders/padding in width */
+        aspect-ratio: 3 / 2 !important;
+        overflow: hidden; /* Hide any overflow */
     }
-
     .carousel-card:hover {
         transform: translateY(-5px) !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -996,10 +992,11 @@ section {
     }
 
     .carousel-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
         display: block;
+        margin: auto; /* center if smaller */
     }
 
     /* Hide desktop carousel controls */
@@ -1008,21 +1005,98 @@ section {
         display: none !important;
     }
 }
+@media (max-width: 480px) {
+    /* Third Section (Projects) - Mobile: Vertical Cards Layout */
+    .third-section {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 20px 0 40px 0;
+    }
 
-        @media (max-width: 480px) {
-            .carousel-card {
-                flex: 0 0 280px;
-                height: 175px;
-            }
-            
-            .carousel-container {
-                height: 65vh;
-            }
-            
-            .projects-header {
-                height: 25vh;
-            }
-        }
+    .projects-header {
+        height: auto !important;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .projects-header h2 {
+        font-size: 1.8rem; /* Slightly smaller for very small screens */
+        line-height: 1.2;
+    }
+
+    .carousel-container {
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible;
+        position: static;
+        max-width: none;
+        padding: 0 10px; /* Reduced padding for smaller screens */
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel {
+        overflow: visible;
+        position: static;
+        height: auto !important;
+        width: 100%;
+    }
+
+    .carousel-track {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Reduced gap for smaller screens */
+        transform: none !important;
+        transition: none;
+        height: auto !important;
+        align-items: stretch;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .carousel-card {
+        flex: none;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        filter: none !important;
+        background-color: #0A1A2F;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    .carousel-card:hover {
+        transform: translateY(-3px) !important; /* Reduced hover effect */
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        scale: none;
+    }
+
+    .carousel-card.center {
+        transform: none !important;
+        z-index: auto;
+        filter: none !important;
+    }
+
+    .carousel-card img {
+        width: 100%;
+        height: auto; /* Let height be determined by image aspect ratio */
+        object-fit: contain;
+        display: block;
+        border-radius: 12px; /* Match card border radius */
+    }
+
+    /* Hide desktop carousel controls */
+    .carousel-btn,
+    .carousel-gradient {
+        display: none !important;
+    }
+}
         /* Fourth Section Styling */
         .fourth-section {
             background-color: #154273;
