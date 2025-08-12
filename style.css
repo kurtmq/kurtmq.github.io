@@ -24,10 +24,10 @@ section {
 .hero {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 50px;
     gap: 50px;
-    height: 100vh;           /* Still fills full viewport */
+    height: 100vh;
     box-sizing: border-box;  /* Padding is included inside the height */
     scroll-snap-align: start;
 }
@@ -861,16 +861,17 @@ section {
             }
         }
 
-/* Third Section (Projects) - Mobile */
-@media screen and (max-width: 768px) {
+/* Third Section (Projects) - Mobile view: make Section 3 projects vertical like Section 2 */
+@media (max-width: 768px) {
+    /* Third Section (Projects) - Mobile: Vertical Cards Layout */
     .third-section {
-        height: auto;
-        min-height: 100vh;
-        padding: 20px 0;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 20px 0 40px 0;
     }
 
     .projects-header {
-        height: auto;
+        height: auto !important;
         padding: 20px;
         margin-bottom: 20px;
     }
@@ -881,46 +882,93 @@ section {
     }
 
     .carousel-container {
-        height: 60vh;
-        max-height: 400px;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible;
+        position: static;
+        max-width: none;
+        padding: 0 15px; /* Reduced and balanced padding */
+        margin: 0; /* Reset any margin */
+        width: 100%; /* Ensure full width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .carousel {
+        overflow: visible;
+        position: static;
+        height: auto !important;
+        width: 100%;
+    }
+
+    .carousel-track {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transform: none !important;
+        transition: none;
+        height: auto !important;
+        align-items: stretch;
+        width: 100%;
+        margin: 0; /* Reset any margin */
+        padding: 0; /* Reset any padding */
     }
 
     .carousel-card {
-        flex: 0 0 280px;
-        height: 200px;
+        flex: none;
+        width: 100%;
+        height: 220px;
+        transform: none !important;
+        filter: none !important;
+        background-color: #1e518c;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        margin: 0; /* Reset any margin */
+        box-sizing: border-box; /* Include any borders/padding in width */
+    }
+
+    .carousel-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        scale: none;
     }
 
     .carousel-card.center {
-        transform: scale(1.05);
+        transform: none !important;
+        z-index: auto;
+        filter: none !important;
     }
 
-    .carousel-card:not(.center) {
-        transform: scale(0.9);
-        filter: brightness(0.7);
+    .carousel-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
-    .carousel-btn {
-        padding: 8px;
-        transform: translateY(-50%) scale(0.8);
-    }
-
-    .carousel-btn:hover {
-        transform: translateY(-50%) scale(0.9);
-    }
-
-    .carousel-btn img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .prev {
-        left: 10px;
-    }
-
-    .next {
-        right: 10px;
+    /* Hide desktop carousel controls */
+    .carousel-btn,
+    .carousel-gradient {
+        display: none !important;
     }
 }
+
+        @media (max-width: 480px) {
+            .carousel-card {
+                flex: 0 0 280px;
+                height: 175px;
+            }
+            
+            .carousel-container {
+                height: 65vh;
+            }
+            
+            .projects-header {
+                height: 25vh;
+            }
+        }
         /* Fourth Section Styling */
         .fourth-section {
             background-color: #154273;
