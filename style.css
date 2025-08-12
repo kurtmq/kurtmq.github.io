@@ -276,13 +276,13 @@ section {
         gap: 30px;
         height: auto;
         min-height: 100vh;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
 
     .intro {
         text-align: center;
-        order: 2;
+        order: 1;
     }
 
     .intro h1 {
@@ -293,42 +293,20 @@ section {
         font-size: 1.1rem;
     }
 
+    /* Profile picture centered */
     .profile-pic {
         width: 280px;
         max-width: 90vw;
+        display: block;
+        margin: 0 auto;
     }
 
-    .tech-stack {
-        order: 1;
-        width: 100%;
-    }
-
-    .tech-stack h2 {
+    /* Tech Summary */
+    .tech-summary {
+        order: 2;
+        margin-top: 20px;
+        margin-bottom: 30px;
         text-align: center;
-        font-size: 1.6rem;
-    }
-
-    .stack-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-
-    .stack-item img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .stack-item p {
-        font-size: 0.7rem;
-    }
-
-    .stack-category-2 {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .db-logos, .tools-logos {
-        gap: 15px;
     }
 
     .tech-summary h3 {
@@ -338,6 +316,78 @@ section {
     .tech-summary p {
         font-size: 16px;
         padding: 0 10px;
+    }
+
+    /* Tech Stack */
+    .tech-stack {
+        order: 3;
+        width: 100%;
+    }
+
+    .tech-stack h2 {
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 15px;
+    }
+
+    .stack-item {
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .stack-item img {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.3s ease;
+    }
+
+    .stack-item p {
+        font-size: 0.8rem;
+        margin-top: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    .stack-item:hover {
+        transform: scale(1.1);
+    }
+
+    /* Make stack-category-2 follow stack-category style */
+    .stack-category-2 {
+        display: block; /* kill the grid */
+        margin-top: 30px;
+    }
+
+    .stack-category-2 h3 {
+        color: #4DA8FF;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    /* Remove vertical centering from desktop */
+    .db-column {
+        display: block; /* kill flex layout */
+        text-align: center;
+    }
+    .db-logos, .tools-logos {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 15px;
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .db-logos img, .tools-logos img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .db-logos .stack-item,
+    .tools-logos .stack-item {
+        text-align: center;
     }
 }
         /* Section 2 Layout */
