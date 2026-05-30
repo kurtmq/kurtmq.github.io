@@ -589,6 +589,10 @@ section {
             background-color: #275d8f;
         }
 
+        .btn[hidden] {
+            display: none !important;
+        }
+
         .right-column {
             display: flex;
             flex-direction: column;
@@ -769,6 +773,10 @@ section {
             height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+
+        .third-section[hidden] {
+            display: none !important;
         }
 
         .projects-header {
