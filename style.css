@@ -235,6 +235,21 @@ section {
 .stack-item:hover {
     transform: scale(1.1);
 }
+
+.stack-item-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 50px;
+    padding: 0 4px;
+}
+
+.stack-item-text p {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    margin-top: 0;
+}
 .tech-summary {
     text-align: center;
     margin-top: 50px;
